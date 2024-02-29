@@ -17,7 +17,7 @@ pub fn main() !void {
     defer output_file.close();
 
     var br = std.io.bufferedReader(input_file.reader());
-    try std.compress.flate.decompress(br.reader(), output_file.writer());
+    try std.compress.flate.compress(br.reader(), output_file.writer(), .{});
 }
 
 fn usageAndExit(file: std.fs.File, arg0: []const u8, code: u8) noreturn {

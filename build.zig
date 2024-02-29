@@ -90,7 +90,11 @@ pub fn build(b: *std.Build) void {
     // test_step.dependOn(&run_exe_unit_tests.step);
 
     const binaries = [_]Binary{
+        .{ .name = "inflate_bench", .src = "src/inflate_bench.zig" },
+        .{ .name = "gzip", .src = "src/gzip.zig" },
+        .{ .name = "gunzip", .src = "src/gunzip.zig" },
         .{ .name = "inflate", .src = "src/inflate.zig" },
+        .{ .name = "deflate", .src = "src/deflate.zig" },
     };
     for (binaries) |i| {
         const bin = b.addExecutable(.{
