@@ -2,11 +2,14 @@
 
 cd "$(dirname "$0")"
 
+zig_lib_dir=${1:-~/zig/zig/lib}
+
 # standard libraray version
 zig build -Doptimize=ReleaseFast -p zig-out/std
 
 # built with my changes
-zig build -Doptimize=ReleaseFast -p zig-out/my --zig-lib-dir ~/zig/zig/lib
+echo using std lib from $zig_lib_dir
+zig build -Doptimize=ReleaseFast -p zig-out/my --zig-lib-dir $zig_lib_dir
 
 mkdir -p tmp
 rm tmp/*.expected tmp/*.actual
