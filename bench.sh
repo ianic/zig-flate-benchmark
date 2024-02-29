@@ -37,4 +37,3 @@ do
        -n my "zig-out/my/bin/inflate_bench -i $i"
 done
 
-# hyperfine --parameter-scan i 0 4 "zig-out/std/bin/inflate -i {i}" "zig-out/my/bin/inflate -i {i}"
