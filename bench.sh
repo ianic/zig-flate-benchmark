@@ -28,10 +28,13 @@ for f in src/bench_data/*.flate; do
 done
 
 
-for i in {0..4}
+for i in {0..5}
 do
     echo
-    hyperfine -w 1 -n std "zig-out/std/bin/inflate_bench -i $i"  -n my "zig-out/my/bin/inflate_bench -i $i"
+    hyperfine -w 1 \
+       -n std "zig-out/std/bin/inflate_bench -i $i" \
+       -n v1 "zig-out/std/bin/inflate_bench_v1 -i $i" \
+       -n my "zig-out/my/bin/inflate_bench -i $i"
 done
 
 # hyperfine --parameter-scan i 0 4 "zig-out/std/bin/inflate -i {i}" "zig-out/my/bin/inflate -i {i}"
