@@ -17,11 +17,13 @@ pub fn build(b: *std.Build) void {
 
     const binaries = [_]Binary{
         .{ .name = "inflate_bench", .src = "src/inflate_bench.zig" },
+        .{ .name = "zlib_bench", .src = "src/zlib_bench.zig" },
         .{ .name = "inflate_bench_v1", .src = "src/inflate_bench_v1.zig" },
         .{ .name = "gzip", .src = "src/gzip.zig" },
         .{ .name = "gunzip", .src = "src/gunzip.zig" },
         .{ .name = "inflate", .src = "src/inflate.zig" },
         .{ .name = "deflate", .src = "src/deflate.zig" },
+        .{ .name = "zlib", .src = "src/zlib.zig" },
     };
     for (binaries) |i| {
         const bin = b.addExecutable(.{

@@ -12,7 +12,7 @@ echo using std lib from $zig_lib_dir
 zig build -Doptimize=ReleaseFast -p zig-out/my --zig-lib-dir $zig_lib_dir
 
 mkdir -p tmp
-rm tmp/*.expected tmp/*.actual
+rm -f tmp/*.expected tmp/*.actual
 
 echo "compare inflate output"
 for f in src/bench_data/*.flate; do
